@@ -34,10 +34,12 @@ COPY --from=base /usr/local/bin /usr/local/bin
 # Copy application code
 COPY src/ ./src/
 COPY api/ ./api/
-COPY models/ ./models/
 
-# Create necessary directories
-RUN mkdir -p logs artifacts data/raw data/processed
+# Create necessary directories first
+RUN mkdir -p logs artifacts data/raw data/processed models
+
+# Copy models directory (may be empty in CI/CD)
+COPY models ./models/
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1

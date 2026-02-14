@@ -27,14 +27,14 @@ ENV/
 .venv
 
 # ML & Data
-Data/
 data/raw/
 data/processed/
 *.h5
 *.pkl
 *.pt
 *.pth
-models/
+models/*
+!models/.gitkeep
 mlruns/
 .dvc/cache/
 
